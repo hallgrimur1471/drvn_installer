@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-import svarmi.installer._utils as utils
+import drvn.installer._utils as utils
 
 
 @pytest.fixture(scope="class")

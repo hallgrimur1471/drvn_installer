@@ -8,10 +8,6 @@ drvn_installer --help
 
 ## Installing
 
-### Installing prerequsites
-
-Run [this](https://gitlab.com/svarmi/scripts/-/blob/master/configure_authentication_to_spypi.py) script to configure authentication to SPyPi.
-
 ### Installing in editable-mode
 
 ```
@@ -19,8 +15,9 @@ sudo -H python3.8 -m pip install --editable .
 ```
 
 ### Installing in the usual, non-editable mode
+
 ```
-python3.8 -m pip install --user --index-url https://${SPYPI_USERNAME}:${SPYPI_PASSWORD}@spypi.svarmi.is drvn.installer
+python3.8 -m pip install --user drvn.installer
 ```
 
 ## Testing
@@ -53,14 +50,5 @@ tox -e integration
 
 ## Uploading
 
-### Uploading prerequsites
+### Uploading to PyPi
 
-Run [this](https://gitlab.com/svarmi/scripts/-/blob/master/configure_authentication_to_spypi.py) script to configure authentication to SPyPi.
-
-### Uploading to SPyPi
-
-After editing package version in setup.py adhering to [semantic versioning](https://semver.org/), run the following to upload your package to SPyPi:
-
-```
-tox -e upload
-```

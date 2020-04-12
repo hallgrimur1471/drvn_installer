@@ -2,7 +2,7 @@ import logging
 import argparse
 
 import drvn.installer.example_module
-import drvn.installer._logging as svarmi_logger
+import drvn.installer._logging as drvn_logger
 
 
 def main():
@@ -12,7 +12,7 @@ def main():
         log_level = logging.DEBUG
     else:
         log_level = logging.INFO
-    svarmi_logger.configure(log_level)
+    drvn_logger.configure(log_level)
 
     logging.info(drvn.installer.example_module.example_public_function())
 
