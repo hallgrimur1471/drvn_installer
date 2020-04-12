@@ -19,7 +19,7 @@ def main():
 
 def _parse_arguments():
     parser = argparse.ArgumentParser()
-    parser.description = "Can install various software with options on additionally installing custom configs."
+    parser.description = "Installers for various software with options on additionally installing custom configs."
     parser.add_argument(
         "-v",
         "--verbose",
