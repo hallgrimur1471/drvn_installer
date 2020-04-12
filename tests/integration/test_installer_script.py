@@ -14,13 +14,19 @@ def workspace():
     _tear_down_workspace()
 
 
-class TestCreatePackageScript:
+class TestDrvnInstallerScript:
     def test_help_exits_with_returncode_zero(self):
-        utils.try_cmd("drvn_installer --help")
+        _assert_returncode_zero("drvn_installer --help")
 
     def test_normal_run_exits_with_returncode_zero(self, workspace):
-        utils.try_cmd("drvn_installer", cwd=workspace)
+        _assert_returncode_zero("drvn_installer", cwd=workspace)
 
+    def test_installable_software_is_listable(self, workspace):
+        _assert_returncode_zero("drvn_installer --list-installable-software", cwd=workspace)
+
+    # TODO: do some install testing in a docker container
+
+_assert_returncode_zero = utils.try_cmd
 
 def _set_up_workspace():
     workspace_path = _get_workspace_path()
