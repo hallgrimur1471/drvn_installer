@@ -22,7 +22,7 @@ setuptools.setup(
     package_data={"": ["*"]},
     entry_points={
         "console_scripts": [
-            "drvn_installer = " + "drvn." + "installer." + "_script:" + "main"
+            "drvn_installer = drvn.installer._script:main"
         ]
     },
     install_requires=[],

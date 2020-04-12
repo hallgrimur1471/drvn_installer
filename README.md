@@ -64,6 +64,3 @@ After editing package version in setup.py adhering to [semantic versioning](http
 ```
 tox -e upload
 ```
-
-Copyright (C) 2020, Svarmi
-All rights reserved.
