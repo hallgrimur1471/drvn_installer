@@ -13,10 +13,11 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/hallgrimur1471/drvn_installer",
     classifiers=[
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "Operating System :: POSIX :: Linux",
     ],
-    python_requires=">=3.8",
+    python_requires=">=3.7",
     package_dir={"": "src"},
     packages=setuptools.find_namespace_packages(where="src"),
     package_data={"": ["*"]},
