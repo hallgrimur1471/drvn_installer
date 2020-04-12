@@ -21,6 +21,7 @@ class TestCreatePackageScript:
     def test_normal_run_exits_with_returncode_zero(self, workspace):
         utils.try_cmd("drvn_installer", cwd=workspace)
 
+
 def _set_up_workspace():
     workspace_path = _get_workspace_path()
     logging.debug("Setting up integration test workspace ...")
@@ -37,4 +38,3 @@ def _tear_down_workspace():
 def _get_workspace_path():
     workspace_path = Path("/tmp/python_installer/integration_workspace")
     return workspace_path
-
