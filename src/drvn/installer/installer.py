@@ -1,14 +1,16 @@
 import logging
 
+from drvn.installer.installers import ultimate_vim_installer, tmux_installer
 
-def install(software, with_drvn_configs):
+
+def install(software, is_install_drvn_configs):
     if software not in get_installable_software():
         raise RuntimeError(
             f"Installing '{software}' is not supported by this installer."
         )
 
     install_function = _get_install_function(software)
-    install_function(with_drvn_configs)
+    install_function(is_install_drvn_configs)
 
 
 def get_installable_software():
@@ -23,12 +25,7 @@ def _get_install_function(software):
     return _SOFTWARE_TO_INSTALL_FUNCTION[software]
 
 
-def _install_vim(with_drvn_configs):
-    logging.debug("Installing vim ...")
-
-
-def _install_tmux(with_drvn_configs):
-    logging.debug("Installing tmux ...")
-
-
-_SOFTWARE_TO_INSTALL_FUNCTION = {"vim": _install_vim, "tmux": _install_tmux}
+_SOFTWARE_TO_INSTALL_FUNCTION = {
+    "tmux": tmux_installer.install,
+    "ultimate_vim": ultimate_vim_installer.install,
+}

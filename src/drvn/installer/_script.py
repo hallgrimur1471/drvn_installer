@@ -1,7 +1,6 @@
 import logging
 import argparse
 
-import drvn.installer.example_module
 import drvn.installer.installer as installer
 import drvn.installer._logging as drvn_logger
 
@@ -24,8 +23,6 @@ def main():
         software_to_install = args.install.split(",")
         for software in software_to_install:
             installer.install(software, args.with_drvn_configs)
-
-    logging.info(drvn.installer.example_module.example_public_function())
 
 
 def _parse_arguments():
