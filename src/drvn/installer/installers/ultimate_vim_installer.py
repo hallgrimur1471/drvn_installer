@@ -9,6 +9,7 @@ import drvn.installer._dotfile_repository as dotfile_repository
 def install(is_install_drvn_configs):
     logging.info("Installing ultimate_vim ...")
     _install_prerequisites()
+    _install_vim()
     _install_ultimate_vim()
     _install_extra_plugins()
     if is_install_drvn_configs:
@@ -21,6 +22,10 @@ def _install_prerequisites():
     python = _get_current_python_interpreter()
     utils.try_cmd(f"{python} -m pip install python-language-server")
     utils.try_cmd(f"{python} -m pip install mypy")
+
+
+def _install_vim():
+    try_cmd("sudo apt-get install -y vim")
 
 
 def _install_ultimate_vim():
@@ -65,13 +70,18 @@ def _install_you_complete_me():
         + f"{python} install.py --clang-completer"
     )
 
+
 def _install_more_color_schemes():
     plugins_path = Path("~/.vim_runtime/sources_forked").expanduser()
     colorschemes_path = plugins_path / "vim-colorschemes"
     if not colorschemes_path.is_dir():
         utils.try_cmd("git clone https://github.com/flazz/vim-colorschemes.git")
     else:
-        logging.debug("Looks like vim-colorschemes is already cloned, "+"skipping cloning ...")
+        logging.debug(
+            "Looks like vim-colorschemes is already cloned, "
+            + "skipping cloning ..."
+        )
+
 
 def _install_drvn_configs():
     if not dotfile_repository.is_cloned():

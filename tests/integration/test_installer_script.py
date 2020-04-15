@@ -23,7 +23,9 @@ class TestDrvnInstallerScript:
 
     # TODO: do some install testing in a docker container
 
+
 _assert_returncode_zero = utils.try_cmd
+
 
 def _set_up_workspace():
     workspace_path = _get_workspace_path()
