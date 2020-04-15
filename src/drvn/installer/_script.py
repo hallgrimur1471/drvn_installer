@@ -14,11 +14,6 @@ def main():
         log_level = logging.INFO
     drvn_logger.configure(log_level)
 
-    if args.list_installable_software:
-        for software in installer.get_installable_software():
-            print(software)
-        return
-
     if args.install:
         software_to_install = args.install.split(",")
         for software in software_to_install:
@@ -36,7 +31,7 @@ def _parse_arguments():
         "--install",
         metavar="SOFTWARE_LIST",
         help="Comma seperated list of software to install. "
-        + "Example: vim,tmux",
+        + f"Possible values: {','.join(installer.get_installable_software())}",
     )
     parser.add_argument(
         "-c",
@@ -44,12 +39,6 @@ def _parse_arguments():
         action="store_true",
         help="Additionally install drvn's custom configs with the software "
         + "(drvn's .vimrc with vim, etc)",
-    )
-    parser.add_argument(
-        "-l",
-        "--list-installable-software",
-        action="store_true",
-        help="Output a list of all software that this installer can install",
     )
     parser.add_argument(
         "-v",

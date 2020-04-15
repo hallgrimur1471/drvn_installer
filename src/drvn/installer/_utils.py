@@ -1,4 +1,5 @@
 import subprocess
+import logging
 
 
 def try_cmd(*args, **kwargs):
@@ -24,6 +25,8 @@ def cmd(*args, **kwargs):
         kwargs["shell"] = True
     if "executable" not in kwargs:
         kwargs["executable"] = "/bin/bash"
+
+    logging.debug(f"$ {args[0]}")
 
     # pylint: disable=subprocess-run-check
     completed_process = subprocess.run(*args, **kwargs)
