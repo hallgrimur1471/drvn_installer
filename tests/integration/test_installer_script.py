@@ -21,9 +21,6 @@ class TestDrvnInstallerScript:
     def test_normal_run_exits_with_returncode_zero(self, workspace):
         _assert_returncode_zero("drvn_installer", cwd=workspace)
 
-    def test_installable_software_is_listable(self, workspace):
-        _assert_returncode_zero("drvn_installer --list-installable-software", cwd=workspace)
-
     # TODO: do some install testing in a docker container
 
 _assert_returncode_zero = utils.try_cmd
