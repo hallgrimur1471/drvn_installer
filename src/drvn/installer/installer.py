@@ -12,6 +12,8 @@ def install(software, is_install_drvn_configs):
     install_function = _get_install_function(software)
     install_function(is_install_drvn_configs)
 
+    logging.info("Install successful")
+
 
 def get_installable_software():
     installable_software = [
