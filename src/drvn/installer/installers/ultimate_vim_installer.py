@@ -75,7 +75,10 @@ def _install_more_color_schemes():
     plugins_path = Path("~/.vim_runtime/sources_forked").expanduser()
     colorschemes_path = plugins_path / "vim-colorschemes"
     if not colorschemes_path.is_dir():
-        utils.try_cmd("git clone https://github.com/flazz/vim-colorschemes.git")
+        utils.try_cmd(
+            "git clone https://github.com/flazz/vim-colorschemes.git",
+            cwd=plugins_path,
+        )
     else:
         logging.debug(
             "Looks like vim-colorschemes is already cloned, "
