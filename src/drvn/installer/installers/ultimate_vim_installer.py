@@ -25,7 +25,7 @@ def _install_prerequisites():
 
 
 def _install_vim():
-    try_cmd("sudo apt-get install -y vim")
+    utils.try_cmd("sudo apt-get install -y vim")
 
 
 def _install_ultimate_vim():
