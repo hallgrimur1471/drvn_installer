@@ -1,10 +1,13 @@
 import subprocess
+import urllib.request
 import logging
+
 
 def open_url(url):
     http_response = urllib.request.urlopen(url)
     body_string = http_response.read().decode()
     return body_string
+
 
 def try_cmd(*args, **kwargs):
     kwargs["check"] = True
