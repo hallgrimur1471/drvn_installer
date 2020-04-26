@@ -2,7 +2,6 @@ import logging
 import os
 import os.path
 import argparse
-import urllib.request
 import json
 import subprocess
 from pathlib import Path
