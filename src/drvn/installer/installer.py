@@ -1,6 +1,10 @@
 import logging
 
-from drvn.installer.installers import ultimate_vim_installer, tmux_installer
+from drvn.installer.installers import (
+    ultimate_vim_installer,
+    tmux_installer,
+    duplicity_installer,
+)
 
 
 def install(software, is_install_drvn_configs):
@@ -30,4 +34,5 @@ def _get_install_function(software):
 _SOFTWARE_TO_INSTALL_FUNCTION = {
     "tmux": tmux_installer.install,
     "ultimate_vim": ultimate_vim_installer.install,
+    "duplicity": duplicity_installer.install,
 }
