@@ -58,6 +58,8 @@ tox -e integration
 # (edit version by creating a git tag ..see setuptools_scm)
 #
 # then:
-python3.8 setuptools.py sdist bdist_wheel
+python3.8 setup.py sdist bdist_wheel
 twine upload dist/*
+# or:
+twine upload -u USER -p PASSWORD dist/*
 ```
